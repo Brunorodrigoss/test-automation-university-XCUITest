@@ -22,4 +22,11 @@ class  TAUUITestBase: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
+
+    func XCTAsyncAssert(_ element: XCUIElement){
+        let isElementExist = element.waitForExistence(timeout: 10)
+        if isElementExist {
+            XCTAssertTrue(element.exists)
+        }
+    }
 }
