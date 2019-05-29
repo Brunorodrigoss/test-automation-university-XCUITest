@@ -8,19 +8,30 @@
 
 import Foundation
 import XCTest
+import EyesXCUI
 
 class  TAUUITestBase: XCTestCase {
 
     var app = XCUIApplication()
 
+    // Initialize the eyes SDK and set your private API key.
+    var eyes = Eyes()
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         app.launch()
+        eyes.apiKey = "//YOUR_API_KEY " 
     }
 
     override func tearDown() {
         super.tearDown()
+
+        do {
+            try eyes.close()
+        } catch {
+            eyes.abortIfNotClosed()
+        }
     }
 
     func XCTAsyncAssert(_ element: XCUIElement){
