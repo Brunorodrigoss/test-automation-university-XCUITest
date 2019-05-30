@@ -3,6 +3,8 @@ osx_image: xcode10.2
 branches:
   only:
     - chapter8
+after_install:
+ - gem install rake
 before_install:
   - gem install fastlane --no-ri --no-rdoc --no-document
 install: true
