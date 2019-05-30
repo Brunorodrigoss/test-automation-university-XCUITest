@@ -2,7 +2,7 @@ language: swift
 osx_image: xcode10.2
 branches:
   only:
-    - chapter8
+    - master
 after_install:
  - gem install rake
 before_install:
